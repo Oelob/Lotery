@@ -49,6 +49,7 @@ public class toyView {
         Scanner in = new Scanner(System.in);
         System.out.println("Введите ID игрушки: ");
         int id = in.nextInt();
+        in.nextLine();
         result.add(id);
         System.out.println("Введите название игрушки: ");
         String name = in.nextLine();
@@ -58,6 +59,7 @@ public class toyView {
         result.add(count);
         System.out.println("Введите вероятность выпадения игрушки: ");
         double weigh = in.nextDouble();
+        in.nextLine();
         result.add(weigh);
         System.out.println("Введите категорию игрушки: ");
         String category = in.nextLine();
