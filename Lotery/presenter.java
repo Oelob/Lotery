@@ -43,13 +43,14 @@ public class presenter{
             LoteryBox<Toys> box = new LoteryBox<>();
             Scanner in = new Scanner(System.in);
             while (true){
-            System.out.print("Выберите команду:\n"+
-            "1. Добавить игрушку в лотерею\n"+
-            "2. Добавить игрока\n"+
-            "3. Сделать ход\n"+
-            "4. Выход");
-            if (in.hasNextInt()){
-                int a = in.nextInt();
+                int a;
+                System.out.print("Выберите команду:\n"+
+                "1. Добавить игрушку в лотерею\n"+
+                "2. Добавить игрока\n"+
+                "3. Сделать ход\n"+
+                "4. Выход");
+                if (in.hasNextInt()){
+                a = in.nextInt();
                 in.nextLine();
                 
                 if (a==1){
@@ -57,20 +58,25 @@ public class presenter{
                     Toys toy = new Toys((int)temp.get(0), (String)(temp.get(1)), (int)temp.get(2), (double)temp.get(3), (String)temp.get(4));
                     box.add(toy);
                     box.printBox(box);
+                    
                 } 
+                else if (a==2){
+                    System.out.println("Good");
+                }
+
                 else if (a==4){
                     break;
                 } else {
                     System.out.println("Неверная комнда, попробуйте снова: ");
                     in.nextLine();
                 } 
-        
-            } 
+            }
+            
             else {
                 System.out.println("Неверная команда, попробуйте снова: ");
                 in.nextLine();
             }         
-            }
+        }
         in.close();
     }
 }

@@ -46,25 +46,26 @@ public class toyView {
 
     public static ArrayList<Object> getToyInfo(){
         ArrayList<Object> result = new ArrayList<>();
-        Scanner in = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
         System.out.println("Введите ID игрушки: ");
-        int id = in.nextInt();
-        in.nextLine();
+        int id = scan.nextInt();
+        scan.nextLine();
         result.add(id);
         System.out.println("Введите название игрушки: ");
-        String name = in.nextLine();
+        String name = scan.nextLine();
         result.add(name);
         System.out.println("Введите количество игрушек: ");
-        int count = in.nextInt();
+        int count = scan.nextInt();
         result.add(count);
         System.out.println("Введите вероятность выпадения игрушки: ");
-        double weigh = in.nextDouble();
-        in.nextLine();
+        double weigh = scan.nextDouble();
+        scan.nextLine();
         result.add(weigh);
         System.out.println("Введите категорию игрушки: ");
-        String category = in.nextLine();
+        String category = scan.nextLine();
         result.add(category);
-        in.close();
+        // scan.close();
+    
 
         return result;
     }
