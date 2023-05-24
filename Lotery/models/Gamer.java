@@ -1,5 +1,8 @@
 package models;
 
+import java.util.ArrayList;
+
+import javax.xml.validation.ValidatorHandler;
 
 public class Gamer {
     
@@ -23,5 +26,12 @@ public class Gamer {
        return String.format("ID игрока - %d\nИмя игрока - %s", this.id, this.name);
    }
 
+   public void gamersList(ArrayList<Gamer> arr){
+    for (Gamer gamer : arr) {
+        System.out.println(gamer);
+        System.out.println("============");
+    }
+
+   }
 
 }

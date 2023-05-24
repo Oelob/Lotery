@@ -4,50 +4,44 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class LoteryBox<Toys> implements Iterable<Toys>{
+public class GamersList<Gamer> implements Iterable<Gamer> {
 
-   private List<Toys> LotteryBox = new ArrayList<>();
+    private List<Gamer> gamerList = new ArrayList<>();
 
-   public void add(Toys el){
-        LotteryBox.add(el);
+    public void add(Gamer gamer){
+        gamerList.add(gamer);
     }
 
-   public void remove(Toys el){
-        LotteryBox.remove(el);
+    public void remove(Gamer el){
+        gamerList.remove(el);
     }
-
-    public int getLength(LoteryBox<Toys> arr){
+    public int getLength(GamersList<Gamer> arr){
         int result = 0;
-        for (Toys toy : arr){
+        for (Gamer toy : arr){
             result++;
         }
         return result;
         
     }
+
    
 
-    public void printBox(LoteryBox<Toys> arr){
-        for (Toys toys : arr) {
-            System.out.println(toys);
+    public void printList(GamersList<Gamer> arr){
+        for (Gamer gamer : arr) {
+            System.out.println(gamer);
             System.out.println("===============");
         }
     }
-
-    
-  
-
     @Override
-    public Iterator <Toys>iterator() {
-        return new CustomIterator<Toys>(LotteryBox);
-      
+    public Iterator<Gamer> iterator() {
+        return new CustomIterator<Gamer>(gamerList);
     }
-
     public class CustomIterator<T> implements Iterator<T>{
         int current_pos = 0; 
         List<T> temp_list;
 
-        public CustomIterator(List<T> temp_list) {
-            this.temp_list = temp_list;
+        public CustomIterator(List<T> gamerList) {
+            this.temp_list = gamerList;
 
         }
         @Override

@@ -3,8 +3,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import models.Gamer;
+import models.GamersList;
 import models.LoteryBox;
 import models.Toys;
+import view.display;
 import view.toyView;
 
 
@@ -41,10 +43,11 @@ public class presenter{
         public static void Menu() {
 
             LoteryBox<Toys> box = new LoteryBox<>();
+            GamersList<Gamer> gamerList = new GamersList<>();
             Scanner in = new Scanner(System.in);
             while (true){
                 int a;
-                System.out.print("Выберите команду:\n"+
+                display.showInfo("Выберите команду:\n"+
                 "1. Добавить игрушку в лотерею\n"+
                 "2. Добавить игрока\n"+
                 "3. Сделать ход\n"+
@@ -61,19 +64,45 @@ public class presenter{
                     
                 } 
                 else if (a==2){
-                    System.out.println("Good");
+                    ArrayList<Object> temp = view.gamerView.getGamerInfo();
+                    Gamer gamer = new Gamer((int)temp.get(0), (String)(temp.get(1)));
+                    gamerList.add(gamer);
+
                 }
+                else if (a==3){
+                    // int size_box = getLength(box);
+                    int size_box = box.getLength(box);
+                    if ( size_box != 0) //проверка на наличие игрушек в лотерее 
+                    {
+                        display.showInfo("Выберите ID игрока: ");
+                        int size_gamerList = gamerList.getLength(gamerList);
+                        if (size_gamerList!=0) //проверка на наличие игроков
+                        {
+                        gamerList.printList(gamerList);
+                        int gamer_count = in.nextInt();
+                        }else{
+                            display.showInfo("Список игороков пуст, сначала добавьте игрока");
+                            continue;
+                        }
+
+                        
+
+                    }else{
+                        display.showInfo("Лотерейный ящик пуст, добавьте игрушек!");
+                    }
+                }
+
 
                 else if (a==4){
                     break;
                 } else {
-                    System.out.println("Неверная комнда, попробуйте снова: ");
+                    display.showInfo("Неверная комнда, попробуйте снова: ");
                     in.nextLine();
                 } 
             }
             
             else {
-                System.out.println("Неверная команда, попробуйте снова: ");
+                display.showInfo("Неверная команда, попробуйте снова: ");
                 in.nextLine();
             }         
         }
