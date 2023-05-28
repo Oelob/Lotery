@@ -1,5 +1,9 @@
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 import models.Gamer;
@@ -8,6 +12,7 @@ import models.LoteryBox;
 import models.Toys;
 import view.display;
 import view.toyView;
+
 
 
 public class presenter{
@@ -42,6 +47,7 @@ public class presenter{
     
         public static void Menu() {
 
+          
             LoteryBox<Toys> box = new LoteryBox<>();
             GamersList<Gamer> gamerList = new GamersList<>();
             Scanner in = new Scanner(System.in);
@@ -60,6 +66,7 @@ public class presenter{
                     ArrayList<Object> temp = view.toyView.getToyInfo();
                     Toys toy = new Toys((int)temp.get(0), (String)(temp.get(1)), (int)temp.get(2), (double)temp.get(3), (String)temp.get(4));
                     box.add(toy);
+                    box.sortBox();
                     box.printBox(box);
                     
                 } 
@@ -84,7 +91,7 @@ public class presenter{
                             display.showInfo("Список игороков пуст, сначала добавьте игрока");
                             continue;
                         }
-
+                        
                         
 
                     }else{

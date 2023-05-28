@@ -1,19 +1,25 @@
 package models;
 
 import java.util.ArrayList;
+
 import java.util.Iterator;
 import java.util.List;
+
 
 public class LoteryBox<Toys> implements Iterable<Toys>{
 
    private List<Toys> LotteryBox = new ArrayList<>();
-
+    
    public void add(Toys el){
         LotteryBox.add(el);
     }
 
    public void remove(Toys el){
         LotteryBox.remove(el);
+    }
+
+    public void sortBox(){
+        LotteryBox.sort(null);
     }
 
     public int getLength(LoteryBox<Toys> arr){
@@ -24,7 +30,6 @@ public class LoteryBox<Toys> implements Iterable<Toys>{
         return result;
         
     }
-   
 
     public void printBox(LoteryBox<Toys> arr){
         for (Toys toys : arr) {
@@ -32,7 +37,7 @@ public class LoteryBox<Toys> implements Iterable<Toys>{
             System.out.println("===============");
         }
     }
-
+    
     
   
 
@@ -65,4 +70,6 @@ public class LoteryBox<Toys> implements Iterable<Toys>{
             return value;
         }
     }
+
+    
 }

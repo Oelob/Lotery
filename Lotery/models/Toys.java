@@ -1,5 +1,8 @@
 package models;
-public class Toys{
+
+import java.util.Comparator;
+
+public class Toys implements Comparable<Toys>{
 
     protected int id;
     protected String name;
@@ -44,4 +47,15 @@ public class Toys{
         this.id, this.name, this.count, this.weigh, this.toy_category);
     }
 
+    @Override
+    public int compareTo(Toys o) {
+        return (int) (this.weigh - o.getWeigh());
+    }
+    
+    // @Override
+    // public int compare(Toys o1, Toys o2) {
+    //     return (int) (o1.getWeigh() - o2.getWeigh());
+    // }
+
 }
+
