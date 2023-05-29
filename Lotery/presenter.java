@@ -58,6 +58,7 @@ public class presenter{
             {
                 int gamer_count; // номер игрока
                 int size_box = box.getLength(box); //кол-во игрушек в ящике
+                // boolean isGood = false;
                 if ( size_box != 0) //проверка на наличие игрушек в лотерее 
                 {
                     display.showInfo("Выберите ID игрока: ");
@@ -72,8 +73,9 @@ public class presenter{
                     }
                     // розыгрыш с рандомом
                     int move = rnd.nextInt(100);
+                        
+                    
                     for (Toys toy : box) {
-                        //
                         if (move <= toy.getWeigh()){
                             display.showInfo(move);
                             String winner = String.format("Игрок под номером %d выйграл %s\n", gamer_count, toy.getName());
@@ -89,9 +91,12 @@ public class presenter{
                             try (FileWriter writer = new FileWriter("winners.txt", true)){
                                 String result = String.format("Игрок под номером %d выйграл %s", gamer_count, toy.getName());
                                 writer.write(result +"\n");
+                                
                             }
-                        }break;
-                    }
+                            break;
+                            
+                        }
+                    }    
                 }else{
                     display.showInfo("Лотерейный ящик пуст, добавьте игрушек!");
                 }
