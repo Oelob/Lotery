@@ -2,10 +2,6 @@
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 import models.Gamer;
@@ -13,8 +9,6 @@ import models.GamersList;
 import models.LoteryBox;
 import models.Toys;
 import view.display;
-import view.toyView;
-
 
 
 public class presenter{
@@ -25,7 +19,6 @@ public class presenter{
         GamersList<Gamer> gamerList = new GamersList<>();
         Scanner in = new Scanner(System.in);
         Random rnd = new Random();
-        
         while (true){
             int a;
             // вывод меню лотереи
@@ -58,7 +51,6 @@ public class presenter{
             {
                 int gamer_count; // номер игрока
                 int size_box = box.getLength(box); //кол-во игрушек в ящике
-                // boolean isGood = false;
                 if ( size_box != 0) //проверка на наличие игрушек в лотерее 
                 {
                     display.showInfo("Выберите ID игрока: ");
@@ -73,8 +65,6 @@ public class presenter{
                     }
                     // розыгрыш с рандомом
                     int move = rnd.nextInt(100);
-                        
-                    
                     for (Toys toy : box) {
                         if (move <= toy.getWeigh()){
                             display.showInfo(move);
@@ -94,7 +84,6 @@ public class presenter{
                                 
                             }
                             break;
-                            
                         }
                     }    
                 }else{
