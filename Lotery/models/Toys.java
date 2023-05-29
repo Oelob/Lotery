@@ -41,6 +41,10 @@ public class Toys implements Comparable<Toys>{
         this.weigh = weigh;
     }
 
+    public void setCount(int count) {
+        this.count = count;
+    }
+
     @Override
     public String toString() {
         return String.format("Игрушка:\n ID - %d\n Name - %s\n Count - %d\n Weigh - %.2f%%\n Toy category - %s", 

@@ -1,5 +1,7 @@
+import java.io.IOException;
+
 public class start {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         presenter.Menu();
     }
     
